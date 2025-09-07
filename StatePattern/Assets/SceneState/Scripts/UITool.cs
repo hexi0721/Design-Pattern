@@ -3,11 +3,17 @@ using UnityEngine.UI;
 
 public class UITool : MonoBehaviour
 {
-    [SerializeField] private Button button;
-    public static UITool Instance { get; set; }
+    public Button Button;
 
-    public Button GetButton()
+    private static UITool instance;
+
+    private void Start()
     {
-        return button;
+        instance = this;
+    }
+
+    public static Button GetButton()
+    {
+        return instance.Button;
     }
 }

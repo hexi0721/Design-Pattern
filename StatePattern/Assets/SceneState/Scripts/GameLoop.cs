@@ -14,7 +14,7 @@ namespace StatePattern
 
         private void Start()
         {
-            controller.SetState(new StartState(controller), "");
+            controller.SetState(new StartState(controller), "Start");
         }
 
         private void Update()

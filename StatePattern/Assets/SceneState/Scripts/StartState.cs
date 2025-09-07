@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace StatePattern
 {
 
@@ -14,18 +16,18 @@ namespace StatePattern
         public void StateBegin()
         {
             // 進行遊戲載入及初始設定等
+            Debug.Log("StartState Begin");
         }
 
         public void StateEnd()
         {
-            
+            Debug.Log("StartState End");
         }
 
         public void StateUpdate()
         {
-            controller.SetState(new MainMenuState(controller), "MainMenuScene");
+            controller.SetState(new MainMenuState(controller), "MainMenu");
         }
-
 
     }
 }

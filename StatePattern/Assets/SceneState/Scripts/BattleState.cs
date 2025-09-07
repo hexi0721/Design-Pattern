@@ -19,17 +19,17 @@ namespace StatePattern
 
         public void StateBegin()
         {
-            Debug.Log("初始化...");
+            Debug.Log("BattelState 初始化...");
         }
 
         public void StateEnd()
         {
-            Debug.Log("釋放...");
+            Debug.Log("BattelState 釋放...");
         }
 
         public void StateUpdate()
         {
-
+            Debug.Log("BattelState 執行邏輯...");
             // InputProcess(); 玩家輸入
 
             // Game.Instance.Update(); // 遊戲邏輯

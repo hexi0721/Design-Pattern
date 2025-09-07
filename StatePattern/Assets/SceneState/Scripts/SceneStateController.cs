@@ -8,18 +8,17 @@ namespace StatePattern
         private ISceneState state;
         private bool runBegin;
         AsyncOperation loadingOperation;
-        private string loadSceneName;
+
 
         public void SetState(ISceneState state, string loadSceneName)
         {
             runBegin = false;
-            this.loadSceneName = loadSceneName;
 
-            SceneManager.LoadScene(loadSceneName);
+            loadingOperation = SceneManager.LoadSceneAsync(loadSceneName);
 
-            if (state != null)
+            if (this.state != null)
             {
-                state.StateEnd();
+                this.state.StateEnd();
             }
 
             this.state = state;
@@ -27,13 +26,11 @@ namespace StatePattern
 
         public void StateUpdate()
         {
-            loadingOperation = SceneManager.LoadSceneAsync(loadSceneName);
-
+            
             if (!loadingOperation.isDone)
             {
                 return;
             }
-
 
             if (state != null && runBegin == false)
             {
