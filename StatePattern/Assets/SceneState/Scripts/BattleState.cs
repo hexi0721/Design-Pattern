@@ -20,11 +20,13 @@ namespace StatePattern
         public void StateBegin()
         {
             Debug.Log("BattelState 初始化...");
+            GameTestScript.Instance.Init();
         }
 
         public void StateEnd()
         {
             Debug.Log("BattelState 釋放...");
+            GameTestScript.Instance.Release();
         }
 
         public void StateUpdate()
@@ -32,12 +34,12 @@ namespace StatePattern
             Debug.Log("BattelState 執行邏輯...");
             // InputProcess(); 玩家輸入
 
-            // Game.Instance.Update(); // 遊戲邏輯
+            GameTestScript.Instance.SelfUpdate();
 
-            // if (Game.Instance.IsGameOver())
-            // {
-            //     controller.SetState(new MainMenuState(controller), "MainMenuScene");
-            // }
+            if (GameTestScript.Instance.CheckGameOver())
+            {
+                controller.SetState(new MainMenuState(controller), "MainMenuScene");
+            }
         }
         
     }
