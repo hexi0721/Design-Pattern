@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StatePattern
@@ -9,12 +7,10 @@ namespace StatePattern
     {
 
         private SceneStateController controller;
-        public string StateName { get; set; }
 
         public BattleState(SceneStateController controller)
         {
             this.controller = controller;
-            StateName = "BattelState";
         }
 
         public void StateBegin()

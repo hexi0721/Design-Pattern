@@ -7,12 +7,11 @@ namespace StatePattern
     {
         private SceneStateController controller;
         
-        public string StateName { get; set; }
+
 
         public MainMenuState(SceneStateController controller)
         {
             this.controller = controller;
-            StateName = "MainMenuState";
         }
 
         public void StateBegin()

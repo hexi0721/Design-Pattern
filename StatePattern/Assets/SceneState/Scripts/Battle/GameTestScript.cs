@@ -1,37 +1,39 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameTestScript : MonoBehaviour
 {
 
+    private static GameTestScript instance;
+    public static GameTestScript Instance
+    {
+        get
+        {
+            instance ??= new GameTestScript();
+            return instance;
+        }
+    }
 
-    public static GameTestScript Instance { get; private set; }
+    private GameTestScript() {}
     private bool isGameOver;
 
     // private GameEventSystem gameEventSystem;
     // ...
-
-    public GameTestScript()
-    {
-        Instance = this;
-    }
+    private CampSystem gameEventSystem;
 
     public void Init()
     {
         isGameOver = false;
         // gameEventSystem = new GameEventSystem(this);
         // ...
+        gameEventSystem = new CampSystem(this);
     }
 
     public void SelfUpdate()
     {
         // gameEventSystem.Update();
         // ...
-
-        Debug.Log(1);
+        gameEventSystem.SelfUpdate();
     }
 
     public bool CheckGameOver()
@@ -42,5 +44,10 @@ public class GameTestScript : MonoBehaviour
     public void Release()
     {
         Debug.Log("Game釋放");
+    }
+
+    public void ShowMsg(string msg)
+    {
+        Debug.Log(msg);
     }
 }

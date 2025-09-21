@@ -15,12 +15,8 @@ namespace StatePattern
             runBegin = false;
 
             loadingOperation = SceneManager.LoadSceneAsync(loadSceneName);
-
-            if (this.state != null)
-            {
-                this.state.StateEnd();
-            }
-
+            
+            this.state?.StateEnd();
             this.state = state;
         }
 
@@ -32,14 +28,14 @@ namespace StatePattern
                 return;
             }
 
-            if (state != null && runBegin == false)
-            {
-                state.StateBegin();
-                runBegin = true;
-            }
-
             if (state != null)
             {
+                if (!runBegin)
+                {
+                    state.StateBegin();
+                    runBegin = true;
+                }
+
                 state.StateUpdate();
             }
             

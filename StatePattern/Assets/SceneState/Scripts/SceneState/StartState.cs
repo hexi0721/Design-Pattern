@@ -6,7 +6,6 @@ namespace StatePattern
     public class StartState : ISceneState
     {
         private SceneStateController controller;
-        public string StateName { get; set; }
 
         public StartState(SceneStateController controller)
         {
