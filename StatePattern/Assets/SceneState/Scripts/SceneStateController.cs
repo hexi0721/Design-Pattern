@@ -7,7 +7,7 @@ namespace StatePattern
     {
         private ISceneState state;
         private bool runBegin;
-        AsyncOperation loadingOperation;
+        private AsyncOperation loadingOperation;
 
 
         public void SetState(ISceneState state, string loadSceneName)

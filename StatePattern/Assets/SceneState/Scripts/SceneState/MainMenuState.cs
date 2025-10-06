@@ -7,8 +7,6 @@ namespace StatePattern
     {
         private SceneStateController controller;
         
-
-
         public MainMenuState(SceneStateController controller)
         {
             this.controller = controller;
