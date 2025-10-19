@@ -132,16 +132,6 @@ public class GameTestScript : MonoBehaviour
 
 }
 
-public interface IEnemy
-{
-
-}
-
-public interface ISoldier
-{
-
-}
-
 public interface ICamp
 {
     
