@@ -17,8 +17,18 @@ public class EnemyA : MonoBehaviour, IEnemy
         }
     }
 
+    private ICharacterAttr attribute;
+
+    public void Init()
+    {
+        attribute = new EnemyAttr();
+        attribute.Init(100, 1, "敵方士兵");
+        attribute.SetCritRate(20);
+    }
+
     public void Attack(ICharacter target)
     {
+        weapon.SetAtkPlusValue(attribute.GetAtkPlusValue());
         weapon.Fire(target);
     }
 
@@ -34,6 +44,11 @@ public class EnemyA : MonoBehaviour, IEnemy
 
     public void UnderAttack(ICharacter attacker)
     {
-        
+
+    }
+    
+    public int GetAtkValue()
+    {
+        return weapon.GetAtkValue();
     }
 }

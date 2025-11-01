@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Weapon
 {
 
-    protected int atkPlusValue;
+    protected int atkPlusValue = 1;
     protected int atk;
     protected float range;
 
@@ -68,6 +68,16 @@ public abstract class Weapon
 
     public void Release()
     {
-        
+
+    }
+    
+    public int GetAtkValue()
+    {
+        return atk * atkPlusValue;
+    }
+
+    public void SetAtkPlusValue(int atkPlusValue)
+    {
+        this.atkPlusValue = atkPlusValue;
     }
 }
