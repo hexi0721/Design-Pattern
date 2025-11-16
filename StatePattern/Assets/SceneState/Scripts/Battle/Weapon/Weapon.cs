@@ -64,7 +64,17 @@ public abstract class Weapon
         audio.Play();
     }
 
-    public abstract void Fire(ICharacter target);
+    public void Fire(ICharacter target)
+    {
+        ShowShootEffect();
+        DoShowBulletEffect(target);
+        DoShowSoundEffect();
+        target.UnderAttack(weaponOwner);
+    }
+
+    protected abstract void DoShowBulletEffect(ICharacter target);
+    protected abstract void DoShowSoundEffect();
+    
 
     public void Release()
     {
