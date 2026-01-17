@@ -1,21 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Product
+namespace BuildPatternPractice
 {
-    private List<string> parts = new List<string>();
-    public void AddPart(string part)
+    
+    public class Product
     {
-        parts.Add(part);
-    }
-
-    public void ShowProduct()
-    {
-        foreach(string part in parts)
+        private List<string> parts = new List<string>();
+        public void AddPart(string part)
         {
-            Debug.Log(part);
+            parts.Add(part);
         }
+
+        public void ShowProduct()
+        {
+            foreach(string part in parts)
+            {
+                Debug.Log(part);
+            }
+        }
+
+
     }
-
-
 }

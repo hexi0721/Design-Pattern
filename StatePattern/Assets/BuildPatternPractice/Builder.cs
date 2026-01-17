@@ -1,31 +1,35 @@
-public abstract class Builder
+namespace BuildPatternPractice
 {
-    public abstract void BuildPart1(Product product);
-    public abstract void BuildPart2(Product product);
-}
 
-public class ConcreteBuilderA : Builder
-{
-    public override void BuildPart1(Product product)
+    public abstract class Builder
     {
-        product.AddPart("ConcreteBuilderA_Part1");
+        public abstract void BuildPart1(Product product);
+        public abstract void BuildPart2(Product product);
     }
 
-    public override void BuildPart2(Product product)
+    public class ConcreteBuilderA : Builder
     {
-        product.AddPart("ConcreteBuilderA_Part2");
-    }
-}
+        public override void BuildPart1(Product product)
+        {
+            product.AddPart("ConcreteBuilderA_Part1");
+        }
 
-public class ConcreteBuilderB : Builder
-{
-    public override void BuildPart1(Product product)
-    {
-        product.AddPart("ConcreteBuilderB_Part1");
+        public override void BuildPart2(Product product)
+        {
+            product.AddPart("ConcreteBuilderA_Part2");
+        }
     }
 
-    public override void BuildPart2(Product product)
+    public class ConcreteBuilderB : Builder
     {
-        product.AddPart("ConcreteBuilderB_Part2");
+        public override void BuildPart1(Product product)
+        {
+            product.AddPart("ConcreteBuilderB_Part1");
+        }
+
+        public override void BuildPart2(Product product)
+        {
+            product.AddPart("ConcreteBuilderB_Part2");
+        }
     }
 }
